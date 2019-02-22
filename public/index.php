@@ -25,6 +25,7 @@ class html{
         Foreach($records as $record) {
             if ($count == 0){
                 $array = $record -> returnArray();
+                
                 $fields = array_keys($array);
                 $values = array_values($array);
                 print_r($fields);
