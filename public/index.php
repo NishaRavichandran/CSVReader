@@ -5,17 +5,16 @@
  * Date: 2/20/19
  * Time: 6:26 PM
  */
-main::start("example.csv");
+main::start("realestatetransactions.csv");
 class main {
     static public function start($filename){
 
         $records = csv::getRecords($filename);
         //   $table = html::generateTable($records);
-        $table = html::build_table($records);
+       $table = html::build_table($records);
         print_r($table);
 
     }
-
 
 }
 
@@ -24,7 +23,6 @@ class html{
     public static function generateTable($records){
 
         $count = 0;
-        echo '<table>';
         Foreach($records as $record) {
             if ($count == 0){
                 $array = $record -> returnArray();
@@ -45,18 +43,18 @@ class html{
         }
 
     }
-    public static function build_table($array){
+    public static function build_table($records){
         // start table
-        $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><table class="table table-striped">';
+        $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
         // header row
         $html .= '<tr>';
-        foreach($array[0] as $key=>$value){
+        foreach($records[0] as $key=>$value){
             $html .= '<th scope="col">' . htmlspecialchars($key) . '</th>';
         }
         $html .= '</tr>';
 
         // data rows
-        foreach( $array as $key=>$value){
+        foreach( $records as $key=>$value){
             $html .= '<tr scope="row">';
             foreach($value as $key2=>$value2){
                 $html .= '<td>' . htmlspecialchars($value2) . '</td>';
@@ -66,7 +64,7 @@ class html{
 
         // finish table and return it
 
-        $html .= '</table>';
+        $html .= '</table></body>';
         return $html;
     }
 

@@ -1,3 +1,6 @@
-First,Last,UCID,Grade,Age
+first,last,UCID,grade,age
 Nisha,Ravichandran,nr437,A,25
 Sunil,Vuppala,vs126,B,26
+Sunil,Vuppala,vs126,B,26
+Street,Zip,SZ,B,0
+street,city,zip,state,beds
