@@ -5,14 +5,13 @@
  * Date: 2/20/19
  * Time: 6:26 PM
  */
-main::start("example.csv");
+main::start("realestatetransactions.csv");
 class main {
     static public function start($filename){
 
-        $records = csv::getRecords($filename);
-        //   $table = html::generateTable($records);
-       $table = html::build_table($records);
-        print_r($table);
+       $records = csv::getRecordsFromFile($filename);
+       $table = html::buildTable($records);
+       print_r($table);
 
     }
 
@@ -20,30 +19,7 @@ class main {
 
 class html{
 
-    public static function generateTable($records){
-
-        $count = 0;
-        Foreach($records as $record) {
-            if ($count == 0){
-                $array = $record -> returnArray();
-
-                $fields = array_keys($array);
-                $values = array_values($array);
-                print_r($fields);
-                print_r($values);
-
-
-            } else {
-                $array = $record -> returnArray();
-                $values = array_values($array);
-                print_r($values);
-            }
-            $count++;
-
-        }
-
-    }
-    public static function build_table($records){
+    public static function buildTable($records){
         // start table
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
 
@@ -72,7 +48,7 @@ class html{
 }
 class csv{
 
-    static public function getRecords($filename) {
+    static public function getRecordsFromFile($filename) {
 
         $file = fopen($filename, "r");
 
@@ -87,7 +63,7 @@ class csv{
             if($count == 0) {
                 $fieldNames = $record;
             } else {
-                $records[] = recordFactory::create($fieldNames, $record);
+                $records[] = recordFactory::createRecord($fieldNames, $record);
             }
             $count++;
         }
@@ -126,7 +102,7 @@ class record{
 
 }
 class recordFactory{
-    static public function create (Array $fieldNames = null, Array $values = null){
+    static public function createRecord (Array $fieldNames = null, Array $values = null){
 
 
         $record = new record($fieldNames, $values);
