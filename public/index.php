@@ -5,7 +5,7 @@
  * Date: 2/20/19
  * Time: 6:26 PM
  */
-main::start("realestatetransactions.csv");
+main::start("example.csv");
 class main {
     static public function start($filename){
 
@@ -46,6 +46,7 @@ class html{
     public static function build_table($records){
         // start table
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
+
         // header row
         $html .= '<tr>';
         foreach($records[0] as $key=>$value){
