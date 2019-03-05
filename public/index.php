@@ -11,8 +11,9 @@ class main {
     static public function start($filename){
 
        $records = csv::getRecordsFromFile($filename);
-       $table = html::buildTable($records);
        $nav= html::navBar();
+       $table = html::buildTable($records);
+
        print_r($nav);
        print_r($table);
 
@@ -26,10 +27,10 @@ class html{
 
         // navigation bar
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></head>';
-        $html .= '<nav class="navbar navbar-default navbar-fixed-top" style="background-color: dimgray">';
-        $html .= '<div class="Container">';
+        $html .= '<nav class="navbar navbar-default fixed-top navbar-inverse" style="background-color: lightskyblue">';
+        //$html .= '<nav class="navbar navbar-default fixed-top" style="background-color: dimgray">';
         $html .= '<div class="navbar-header">';
-        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: white;">Records from CSV File</a></div>';
+        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: black;">Records from CSV File</a>';
         $html .='</div></nav></body>';
         return $html;
     }
@@ -39,7 +40,7 @@ class html{
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
 
         // header row
-        $html .= '<thead class="thead-dark"><tr>';
+        $html .= '<thead class="thead-dark" style="margin-top: 100px"><tr>';
         foreach($records[0] as $key=>$value){
             $html .= '<th scope="col">' . htmlspecialchars($key) . '</th>';
         }
