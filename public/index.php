@@ -7,10 +7,13 @@
  */
 main::start("realestatetransactions.csv");
 class main {
+
     static public function start($filename){
 
        $records = csv::getRecordsFromFile($filename);
        $table = html::buildTable($records);
+       $nav= html::navBar();
+       print_r($nav);
        print_r($table);
 
     }
@@ -18,6 +21,18 @@ class main {
 }
 
 class html{
+
+    Public static function navBar(){
+
+        // navigation bar
+        $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></head>';
+        $html .= '<nav class="navbar navbar-default navbar-fixed-top" style="background-color: dimgray">';
+        $html .= '<div class="Container">';
+        $html .= '<div class="navbar-header">';
+        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: white;">Records from CSV File</a></div>';
+        $html .='</div></nav></body>';
+        return $html;
+    }
 
     public static function buildTable($records){
         // start table
@@ -73,11 +88,11 @@ class csv{
         fclose($file);
         return $records;
     }
+
 }
 class record{
 
-    public function __construct(Array $fieldNames = null, $values = null)
-    {
+    public function __construct(Array $fieldNames = null, $values = null){
 
 
         $record = array_combine($fieldNames, $values);
@@ -104,11 +119,12 @@ class record{
 
 }
 class recordFactory{
-    static public function createRecord (Array $fieldNames = null, Array $values = null){
 
+    static public function createRecord (Array $fieldNames = null, Array $values = null){
 
         $record = new record($fieldNames, $values);
 
         return $record;
     }
+
 }
