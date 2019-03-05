@@ -27,10 +27,10 @@ class html{
 
         // navigation bar
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></head>';
-        $html .= '<nav class="navbar navbar-default fixed-top navbar-inverse" style="background-color: lightskyblue">';
+        $html .= '<nav class="navbar navbar-default sticky-top navbar-inverse" style="background-color: lightcyan">';
         //$html .= '<nav class="navbar navbar-default fixed-top" style="background-color: dimgray">';
         $html .= '<div class="navbar-header">';
-        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: black;">Records from CSV File</a>';
+        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: black; font-family: Kalapi; font-style: italic; font-weight: bold">Records from CSV File</a>';
         $html .='</div></nav></body>';
         return $html;
     }
