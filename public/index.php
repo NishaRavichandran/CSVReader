@@ -24,13 +24,14 @@ class html{
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
 
         // header row
-        $html .= '<tr>';
+        $html .= '<thead class="thead-dark"><tr>';
         foreach($records[0] as $key=>$value){
             $html .= '<th scope="col">' . htmlspecialchars($key) . '</th>';
         }
-        $html .= '</tr>';
+        $html .= '</tr></thead>';
 
         // data rows
+        $html .= '<tbody>';
         foreach( $records as $key=>$value){
             $html .= '<tr scope="row">';
             foreach($value as $key2=>$value2){
@@ -38,6 +39,7 @@ class html{
             }
             $html .= '</tr>';
         }
+        $html .= '</tbody>';
 
         // finish table and return it
 
