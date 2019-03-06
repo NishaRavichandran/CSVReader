@@ -27,9 +27,9 @@ class html{
 
         // navigation bar
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"></head>';
-        $html .= '<nav class="navbar navbar-default sticky-top navbar-inverse" style="background-color: skyblue">';
+        $html .= '<nav class="navbar navbar-default" style="background-color: cornflowerblue">';
         $html .= '<div class="navbar-header">';
-        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: black; font-family: Kalapi; font-style: italic; font-weight: bold">Records from CSV File</a>';
+        $html .=  '<a class="navbar-brand" href="#" style="font-size:35px;color: black; font-family: Kalapi; font-weight: bold">Records from CSV File</a>';
         $html .='</div></nav></body>';
         return $html;
     }
@@ -39,7 +39,7 @@ class html{
         $html = '<head><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></head><body><table class="table table-striped">';
 
         // header row
-        $html .= '<thead class="thead-dark" style="margin-top: 100px"><tr>';
+        $html .= '<thead class="thead-dark sticky-top" style="margin-top: 100px"><tr>';
         foreach($records[0] as $key=>$value){
             $html .= '<th scope="col">' . htmlspecialchars($key) . '</th>';
         }
